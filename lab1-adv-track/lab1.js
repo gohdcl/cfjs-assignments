@@ -101,9 +101,6 @@ while (counter < 9) {
   ++counter; // increment the counter
 } // end while
 
-console.log(sentence1);
-console.log(sentence2);
-
 assert(sentence1 === "chirp chirp chirp.", "sentence 1 should have 3 chirps");
 assert(sentence2 === "chirp chirp chirp chirp chirp chirp chirp chirp chirp.",
   "sentence 2 should have 9 chirps");
