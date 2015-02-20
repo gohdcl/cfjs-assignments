@@ -71,35 +71,43 @@ var sentence1 = "More food please.",
  HINT: the "split" method on String will be useful.
 */
 
-// create an array containing the words in sentence1
-var chirp1 = sentence1.split(" ");
-sentence1 = "";
+function meerkatTalk1 () {
+  // create an array containing the words in sentence1
+  var chirp1 = sentence1.split(" ");
+  sentence1 = "";
 
-for (var i = 0; i < chirp1.length; i++) {
-  if (i === 2) {
-    chirp1[i] = "chirp.";
-    sentence1 += chirp1[i];
-  } /* end if */ else {
-    chirp1[i] = "chirp ";
-    sentence1 += chirp1[i];
-  } // end else
-} // end for
+  for (var i = 0; i < chirp1.length; i++) {
+    if (i === 2) {
+      chirp1[i] = "chirp.";
+      sentence1 += chirp1[i];
+    } /* end if */ else {
+      chirp1[i] = "chirp ";
+      sentence1 += chirp1[i];
+    } // end else
+  } // end for
+} // end meerkatTalk1
 
-// create an array containing the words in sentence2
-var chirp2 = sentence2.split(" ");
-var counter = 0; // initialize a counter for the while loop
-sentence2 = "";
-while (counter < 9) {
-  if (counter < 8) {
-    chirp2[counter] = "chirp ";
-    sentence2 += chirp2[counter];
-  } /*end if*/ else {
-    chirp2[counter] = "chirp.";
-    sentence2 += chirp2[counter];
-  } // end else
+meerkatTalk1(); // call meerkatTalk1
 
-  ++counter; // increment the counter
-} // end while
+function meerkatTalk2() {
+  // create an array containing the words in sentence2
+  var chirp2 = sentence2.split(" ");
+  var counter = 0; // initialize a counter for the while loop
+  sentence2 = ""; // clear sentence2
+
+  while (counter < 9) {
+    if (counter < 8) {
+      chirp2[counter] = "chirp ";
+      sentence2 += chirp2[counter];
+    } /*end if*/ else {
+      chirp2[counter] = "chirp.";
+      sentence2 += chirp2[counter];
+    } // end else
+    ++counter; // increment the counter
+  } // end while
+} // end meerkatTalk2
+
+meerkatTalk2(); // call meerkatTalk2
 
 assert(sentence1 === "chirp chirp chirp.", "sentence 1 should have 3 chirps");
 assert(sentence2 === "chirp chirp chirp chirp chirp chirp chirp chirp chirp.",
@@ -147,19 +155,24 @@ var mealsPerDay = [ 5, 4, 3, 6, 2, 4, 3, 4, 5, 1 ],
  meals)
 */
 
-var average,
+function lionHunger (array) {
+  var average,
+    finalDay,
     totalMeals = 0;
 
-for (var day = 0; day < mealsPerDay.length; day++) {
-  totalMeals += mealsPerDay[day];
-  average = totalMeals / (day + 1);
-  console.log(average);
-  if (average < 4) {
-    tooHungryDay = day;
-    console.log("The lion ate the caretaker on day " + (tooHungryDay + 1));
-    break;
-  } // end if
-} // end for
+  for (var day = 0; day < array.length; day++) {
+    totalMeals += array[day];
+    average = totalMeals / (day + 1);
+    console.log(average);
+    if (average < 4) {
+      finalDay = day;
+      console.log("The lion ate the caretaker on day " + (finalDay + 1));
+      return (finalDay + 1);
+    } // end if
+  } // end for
+} // end lionHunger
+
+tooHungryDay = lionHunger(mealsPerDay);
 
 assert(tooHungryDay, "don't forget to assign the answer to tooHungryDay");
 assert(tooHungryDay < 10, "the lion is too hungry before the end of the array");
