@@ -165,9 +165,9 @@ function lionHunger (array) {
     average = totalMeals / (day + 1);
     console.log(average);
     if (average < 4) {
-      finalDay = day;
-      console.log("The lion ate the caretaker on day " + (finalDay + 1));
-      return (finalDay + 1);
+      finalDay = day + 1;
+      console.log("The lion ate the caretaker on day " + finalDay);
+      return finalDay;
     } // end if
   } // end for
 } // end lionHunger
