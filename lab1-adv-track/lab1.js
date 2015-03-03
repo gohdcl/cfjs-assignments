@@ -77,7 +77,7 @@ function meerkatTalk1 () {
   sentence1 = "";
 
   for (var i = 0; i < chirp1.length; i++) {
-    if (i === 2) {
+    if (i === (chirp1.length - 1)) {
       chirp1[i] = "chirp.";
       sentence1 += chirp1[i];
     } /* end if */ else {
